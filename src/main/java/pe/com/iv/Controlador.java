@@ -24,7 +24,7 @@ public class Controlador {
 
         Persona persona = new Persona();
         persona.setNombre("Isaac");
-        persona.setApellido("Vilchez");
+        persona.setApellido("Vilchez C");
         persona.setEmail("i@vilchez.com");
         persona.setTelefono("921883655");
 
