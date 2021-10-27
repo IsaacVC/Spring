@@ -35,6 +35,20 @@ public class Controlador {
     @PostMapping("/guardar")
     public String guardar(Persona persona){
         personaService.guardar(persona);
-        return "redirect:/";git
+        return "redirect:/";
     }
+    
+    @GetMapping("/editar/{id}")
+    public String editar(Persona persona, Model model){
+        persona = personaService.encontrarPersona(persona);
+        model.addAttribute("persona", persona);
+        return "modificar";
+    }
+    
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(Persona persona){
+        personaService.eliminar(persona);
+        return "redirect:/";
+    }
+            
 }

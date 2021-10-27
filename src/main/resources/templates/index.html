@@ -14,6 +14,8 @@
                     <th>Apellido</th>
                     <th>Correo</th>
                     <th>Teléfono</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
 
                 <tr th:each="persona : ${personas}" >
@@ -21,6 +23,8 @@
                     <td th:text="${persona.apellido}">Mostrar Apellido</td>
                     <td th:text="${persona.email}">Mostrar Correo</td>
                     <td th:text="${persona.telefono}">Mostrar Telefono</td>
+                    <td> <a th:href="@{/editar/} + ${persona.id}" th:text="Editar"/> </td>
+                    <td> <a th:href="@{/eliminar/} + ${persona.id}" th:text="Eliminar"/> </td>
                 </tr>
             </table>
         </div>
