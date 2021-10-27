@@ -1,28 +1,26 @@
 package pe.com.iv.web;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 import lombok.experimental.var;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import pe.com.iv.dao.PersonaDao;
 import pe.com.iv.domain.Persona;
+import pe.com.iv.servicio.PersonaService;
 
 @Controller
 @Slf4j
 public class Controlador {
 
     @Autowired
-    private PersonaDao personaDao;
+    private PersonaService personaService;
 
     @GetMapping("/")
     public String Inicio(Model model) {
 
-        var personas = personaDao.findAll();
+        List<Persona> personas = personaService.listaPersona();
         log.info("Ejecutando el controlador Spring MVC");
         model.addAttribute("personas", personas);
         return "index";
